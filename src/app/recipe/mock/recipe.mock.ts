@@ -1,6 +1,6 @@
-import { Recipe } from '../model/recipe.model';
+import { ExistingRecipe } from '../model/recipe.model';
 
-export const MOCK_RECIPES: Recipe[] = [
+export const MOCK_RECIPES: ExistingRecipe[] = [
   {
     id: 0,
     name: 'Daiquiri',

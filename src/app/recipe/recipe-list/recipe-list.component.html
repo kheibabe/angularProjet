@@ -1,0 +1,8 @@
+<p>
+<ul>
+  <li class="container-list" *ngFor="let item of recipeList">
+    <app-recipe-overview [recipe] = "item" (delete) = "deleteRecipe($event)">
+
+  </app-recipe-overview>
+  </li>
+</ul>

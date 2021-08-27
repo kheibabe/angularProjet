@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MOCK_RECIPES } from './recipe/mock/recipe.mock';
-import { Recipe } from './recipe/model/recipe.model';
+import { ExistingRecipe } from './recipe/model/recipe.model';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +8,5 @@ import { Recipe } from './recipe/model/recipe.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-recipeMock: Recipe = MOCK_RECIPES[0];
+recipeMock: ExistingRecipe = MOCK_RECIPES[0];
 }

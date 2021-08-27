@@ -1,0 +1,25 @@
+<mat-card *ngIf = "currentRecipe" class="example-card">
+  <mat-card-header>
+    <img mat-card-avatar
+    class="card-header-image"
+    [src]="currentRecipe.picture"
+    title="super daïq"
+    alt="photo of {{ currentRecipe.name}}">
+    <mat-card-title>{{ currentRecipe.name }}</mat-card-title>
+    <mat-card-subtitle>{{currentRecipe.id}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <img mat-card-image class="imgdaiq" [src]="currentRecipe.picture" alt="Photo of a daiquiri">
+  <mat-card-content>
+    <p>
+      {{ currentRecipe.description }}
+    </p>
+    <p>
+      {{ currentRecipe.ingredients }}
+    </p>
+    <p>
+      {{ currentRecipe.instructions }}
+    </p>
+  </mat-card-content>
+
+</mat-card>

@@ -1,28 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { RecipeComponent } from './recipe/recipe.component';
-import { CustomMaterialModule } from './custom-material/custom-material.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RecipeListComponent } from './recipe-list/recipe-list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from './core/core.module';
+import { RecipeModule } from './recipe/recipe.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    RecipeComponent,
-    RecipeListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CustomMaterialModule,
     BrowserAnimationsModule,
-    HttpClientModule,
+    CoreModule,
+    RecipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

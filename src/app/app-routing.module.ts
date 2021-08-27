@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { RecipeAddComponent } from './recipe/recipe-add/recipe-add.component';
+import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.component';
+import { RecipeListComponent } from './recipe/recipe-list/recipe-list.component';
 
 const routes: Routes = [
   {
@@ -8,6 +10,17 @@ const routes: Routes = [
       component: RecipeListComponent,
       pathMatch: 'full'
   },
+  {
+  path: 'recipes/new',
+  component: RecipeAddComponent,
+  pathMatch: 'full'
+},
+  {
+    path: 'recipes/:id',
+    component: RecipeDetailComponent,
+    pathMatch: 'full'
+},
+
   {
       path: '**',
       redirectTo: 'recipes',

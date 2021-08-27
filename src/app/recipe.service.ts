@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Recipe } from './recipe/model/recipe.model';
+import { ExistingRecipe, NewRecipe } from './recipe/model/recipe.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -13,11 +13,19 @@ export class RecipeService {
 
   constructor(private readonly httpClient: HttpClient) { }
 
-getRecipes(): Observable<Recipe[]> {
-  return this.httpClient.get<Recipe[]>(`${this.baseUrl}/${this.recipeUrl}`)
+getRecipes(): Observable<ExistingRecipe[]> {
+  return this.httpClient.get<ExistingRecipe[]>(`${this.baseUrl}/${this.recipeUrl}`)
 }
 
-getRecipe(id: number): Observable<Recipe> {
-  return this.httpClient.get<Recipe>(`${this.baseUrl}/${ this.recipeUrl }/${ id }`);
+getRecipe(id: number): Observable<ExistingRecipe> {
+  return this.httpClient.get<ExistingRecipe>(`${this.baseUrl}/${ this.recipeUrl }/${ id }`);
+}
+
+addRecipe(recipe: NewRecipe): Observable<ExistingRecipe> {
+  return this.httpClient.post<ExistingRecipe>(`${this.baseUrl}/${ this.recipeUrl }`, recipe)
+}
+
+deleteRecipe(id: number): Observable<void>{
+  return this.httpClient.delete<void>(`${this.baseUrl}/${ this.recipeUrl }/${ id }`);
 }
 }

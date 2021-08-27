@@ -1,9 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { MOCK_RECIPES } from '../recipe/mock/recipe.mock';
-import { Recipe } from '../recipe/model/recipe.model';
-import { Injectable } from '@angular/core';
-import { RecipeService } from '../recipe.service';
-import { HttpClient } from '@angular/common/http';
+import { Component, Injectable, OnInit } from '@angular/core';
+import { ExistingRecipe } from '../model/recipe.model';
+import { RecipeService } from '../../recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -15,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class RecipeListComponent implements OnInit {
 
-  recipeList: Recipe[] = [];
+  recipeList: ExistingRecipe[] = [];
 
 
   constructor(private readonly recipeService: RecipeService) {
@@ -27,14 +24,25 @@ export class RecipeListComponent implements OnInit {
 
   getRecipes(): void {
   this.recipeService.getRecipes().subscribe(
-    (result: Recipe[]) => {
+    (result: ExistingRecipe[]) => {
         this.recipeList = result;
     },
     (error) => {
-        // Traiter l'erreur
+        console.log(error);
     }
 );
   }
+
+ deleteRecipe(id: number): void {
+  this.recipeService.deleteRecipe(id)
+  .subscribe(
+    response => {
+      this.getRecipes();
+    },
+    error => {
+      console.log(error);
+    });
+ }
 
 
   }
